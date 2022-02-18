@@ -3,6 +3,7 @@
 
 ## Examples
 - [Amazon VPC](https://github.com/Young-ook/terraform-aws-vpc/blob/main/examples/vpc)
+- [AWS Transit Gateway](https://github.com/Young-ook/terraform-aws-vpc/blob/main/examples/tgw)
 
 ## Getting started
 ### AWS CLI
