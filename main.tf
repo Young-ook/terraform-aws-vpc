@@ -31,13 +31,16 @@ data "aws_vpc" "default" {
   default = true
 }
 
-data "aws_subnet_ids" "default" {
-  count  = local.default_vpc ? 1 : 0
-  vpc_id = data.aws_vpc.default.0.id
+data "aws_subnets" "default" {
+  count = local.default_vpc ? 1 : 0
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.0.id]
+  }
 }
 
 data "aws_subnet" "default" {
-  for_each = local.default_vpc ? toset(data.aws_subnet_ids.default.0.ids) : toset([])
+  for_each = local.default_vpc ? toset(data.aws_subnets.default.0.ids) : toset([])
   id       = each.key
 }
 
