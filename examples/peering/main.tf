@@ -86,7 +86,6 @@ module "corp" {
       private_dns_enabled = true
     },
   ]
-
 }
 
 # ec2
