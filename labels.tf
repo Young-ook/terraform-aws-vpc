@@ -1,7 +1,7 @@
 ### frigga name
 module "frigga" {
   source  = "Young-ook/spinnaker/aws//modules/frigga"
-  version = "2.3.3"
+  version = "2.3.5"
   name    = var.name == null || var.name == "" ? "vpc" : var.name
   petname = true
 }
