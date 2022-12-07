@@ -3,7 +3,8 @@ provider "aws" {
 }
 
 module "vpc" {
-  source      = "../../"
+  source      = "Young-ook/vpc/aws"
+  version     = "1.0.2"
   name        = var.name
   tags        = var.tags
   vpc_config  = var.vpc_config

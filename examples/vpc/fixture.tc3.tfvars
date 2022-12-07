@@ -13,7 +13,7 @@ vpc_config = {
   subnet_type = "private" # allowed values : "isolated" | "public" | "private" 
   single_ngw  = true
 }
-vpce_confnig = [
+vpce_config = [
   {
     service             = "s3"
     type                = "Interface"

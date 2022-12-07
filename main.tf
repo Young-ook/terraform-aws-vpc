@@ -202,7 +202,7 @@ resource "aws_security_group" "vpce" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = [local.cidr]
+    cidr_blocks = [local.vpc.cidr_block]
   }
 
   egress {
