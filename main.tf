@@ -193,10 +193,10 @@ resource "aws_internet_gateway" "igw" {
 # security/firewall
 resource "aws_security_group" "vpce" {
   count       = local.vpce_enabled ? 1 : 0
-  name        = format("%s-%s", local.name, "vpce")
+  name        = join("-", [local.name, "vpce"])
   description = format("security group for vpc endpoint of %s", local.name)
   vpc_id      = local.vpc.id
-  tags        = merge(local.default-tags, var.tags)
+  tags        = merge(local.default-tags, { Name = join("-", [local.name, "vpce"]) }, var.tags)
 
   ingress {
     from_port   = 443
