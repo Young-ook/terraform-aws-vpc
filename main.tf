@@ -114,7 +114,7 @@ resource "aws_route" "ingw" {
 resource "aws_eip" "ingw" {
   for_each = !local.default_vpc && local.private ? (local.single_ngw ? toset([local.selected_az]) : toset(local.azs)) : toset([])
   tags     = merge(local.default-tags, var.tags, )
-  domain   = "vpc"
+  vpc      = true
 }
 
 resource "aws_nat_gateway" "ingw" {
