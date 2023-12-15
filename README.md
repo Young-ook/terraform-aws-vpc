@@ -92,4 +92,6 @@ For high availability of communication between resources (instances) inside and 
 
 ![aws-vpc-ngw-per-az](images/aws-vpc-ngw-per-az.png)
 
-# Known Issues
+# Additional Resources
+## IPv6
+- [IPv6 on AWS](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/IPv6-on-AWS.html)
