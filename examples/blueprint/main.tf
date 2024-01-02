@@ -54,6 +54,14 @@ module "vpc" {
       type                = "Interface"
       private_dns_enabled = true
     },
+    {
+      service = "s3"
+      type    = "Gateway"
+    },
+    {
+      service = "dynamodb"
+      type    = "Gateway"
+    },
   ]
 }
 
