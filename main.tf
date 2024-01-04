@@ -230,6 +230,11 @@ resource "aws_vpc_endpoint" "vpce" {
   service_name      = data.aws_vpc_endpoint_service.vpce[each.key].service_name
   vpc_endpoint_type = lookup(each.value, "type", "Gateway")
   vpc_id            = local.vpc.id
+  route_table_ids = lookup(each.value, "type") == "Gateway" ? (
+    !local.default_vpc ? (
+      local.single_ngw ? [local.route_tables.private[local.selected_az]] : values(local.route_tables.private)
+    ) : values(local.route_tables.public)
+  ) : null
   subnet_ids = lookup(each.value, "type") == "Interface" ? matchkeys(
     values(local.vpce_subnets),
     keys(local.vpce_subnets),
