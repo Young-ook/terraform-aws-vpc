@@ -34,7 +34,7 @@ output "subnets" {
 }
 
 output "route_tables" {
-  description = "A list of subnet IDs in the VPC"
+  description = "A list of route table IDs in the VPC"
   value       = local.route_tables
 }
 
