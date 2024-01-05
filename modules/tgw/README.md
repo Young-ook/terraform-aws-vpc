@@ -5,10 +5,49 @@ As you expand globally, inter-Region peering connects AWS Transit Gateways toget
 
 ## Quickstart
 ### Setup
+```
+module "vpc1" {
+  source  = "Young-ook/vpc/aws"
+  vpc_config = {
+    azs         = ["ap-northeast-2a", "ap-northeast-2b", "ap-northeast-2d"]
+    cidr        = "10.10.0.0/16"
+    subnet_type = "isolated"
+  }
+}
 
-```hcl
+module "vpc2" {
+  source  = "Young-ook/vpc/aws"
+  vpc_config = {
+    azs         = ["ap-northeast-2a", "ap-northeast-2b", "ap-northeast-2d"]
+    cidr        = "10.20.0.0/16"
+    subnet_type = "isolated"
+  }
+}
+
 module "tgw" {
   source = "Young-ook/vpc/aws//modules/tgw"
+  vpc_attachments = {
+    vpc = {
+      vpc          = module.vpc1.vpc.id
+      subnets      = values(module.vpc1.subnets["private"])
+      route_tables = values(module.vpc1.route_tables["private"])
+      routes = [
+        {
+          destination_cidr_block = "10.20.0.0/16"
+        },
+      ]
+    }
+    corp = {
+      vpc          = module.vpc2.vpc.id
+      subnets      = values(module.vpc2.subnets["private"])
+      route_tables = values(module.vpc2.route_tables["private"])
+      routes = [
+        {
+          destination_cidr_block = "10.10.0.0/16"
+        },
+      ]
+    }
+  }
 }
 ```
 
