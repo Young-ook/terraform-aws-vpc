@@ -11,7 +11,7 @@ provider "aws" {
 ### network/isolated
 module "vpc" {
   source  = "Young-ook/vpc/aws"
-  version = "1.0.3"
+  version = "1.0.7"
   tags    = merge(var.tags, { topology = "aws" })
   vpc_config = {
     azs         = var.azs
@@ -68,7 +68,7 @@ module "vpc" {
 ### network/controller
 module "corp" {
   source  = "Young-ook/vpc/aws"
-  version = "1.0.3"
+  version = "1.0.7"
   tags    = merge(var.tags, { topology = "corp" })
   vpc_config = {
     azs         = var.azs
@@ -95,16 +95,19 @@ module "corp" {
   ]
 }
 
+
 ### network/transit
 module "tgw" {
+  depends_on = [module.vpc, module.corp]
   source     = "Young-ook/vpc/aws//modules/tgw"
   version    = "1.0.3"
   tags       = var.tags
   tgw_config = {}
   vpc_attachments = {
     vpc = {
-      vpc     = module.vpc.vpc.id
-      subnets = values(module.vpc.subnets["private"])
+      vpc          = module.vpc.vpc.id
+      subnets      = values(module.vpc.subnets["private"])
+      route_tables = values(module.vpc.route_tables["private"])
       routes = [
         {
           destination_cidr_block = "10.50.0.0/16"
@@ -116,8 +119,9 @@ module "tgw" {
       ]
     }
     corp = {
-      vpc     = module.corp.vpc.id
-      subnets = values(module.corp.subnets["private"])
+      vpc          = module.corp.vpc.id
+      subnets      = values(module.corp.subnets["private"])
+      route_tables = values(module.corp.route_tables["private"])
       routes = [
         {
           destination_cidr_block = "10.40.0.0/16"
