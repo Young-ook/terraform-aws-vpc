@@ -100,7 +100,7 @@ module "corp" {
 module "tgw" {
   depends_on = [module.vpc, module.corp]
   source     = "Young-ook/vpc/aws//modules/tgw"
-  version    = "1.0.3"
+  version    = "1.0.8"
   tags       = var.tags
   tgw_config = {}
   vpc_attachments = {
