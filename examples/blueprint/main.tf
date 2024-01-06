@@ -136,15 +136,22 @@ module "tgw" {
 }
 
 ### compute
-module "client" {
+module "vm" {
+  for_each = {
+    workspace = {
+      subnets = values(module.vpc.subnets["private"])
+    }
+    client = {
+      subnets = values(module.corp.subnets["private"])
+    }
+  }
   source  = "Young-ook/ssm/aws"
   version = "1.0.5"
-  name    = var.name
   tags    = var.tags
-  subnets = values(module.corp.subnets["private"])
+  subnets = each.value["subnets"]
   node_groups = [
     {
-      name          = "B"
+      name          = each.key
       max_size      = 1
       instance_type = "t3.large"
     },
