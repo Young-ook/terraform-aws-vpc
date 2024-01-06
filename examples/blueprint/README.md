@@ -29,7 +29,7 @@ terraform apply -var-file fixture.tc1.tfvars
 
 Then, you can then create a transit gateway (TGW) to connect the two VPCs. Once you're done applying terraforms, you can ping an EC2 instance on the 'corp' network to an EC2 instance running on the 'vpc' network with private IP.
 ```
-terraform apply -target module.tgw
+terraform apply -target module.tgw -target module.vm
 ```
 
 ## Clean up
