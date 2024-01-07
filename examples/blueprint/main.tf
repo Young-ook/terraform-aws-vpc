@@ -131,8 +131,38 @@ module "tgw" {
   }
 }
 
+### security/firewall
+resource "aws_security_group" "icmp" {
+  for_each = {
+    workspace = {
+      vpc = module.vpc.vpc.id
+    }
+    client = {
+      vpc = module.corp.vpc.id
+    }
+  }
+  name   = join("-", ["icmp", each.key])
+  vpc_id = each.value["vpc"]
+  tags   = var.tags
+
+  ingress {
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["10.0.0.0/8"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 ### compute
 module "vm" {
+  depends_on = [aws_security_group.icmp]
   for_each = {
     workspace = {
       subnets = values(module.vpc.subnets["private"])
@@ -142,14 +172,15 @@ module "vm" {
     }
   }
   source  = "Young-ook/ssm/aws"
-  version = "1.0.5"
+  version = "1.0.6"
   tags    = var.tags
   subnets = each.value["subnets"]
   node_groups = [
     {
-      name          = each.key
-      max_size      = 1
-      instance_type = "t3.large"
+      name            = each.key
+      max_size        = 1
+      instance_type   = "t3.large"
+      security_groups = [aws_security_group.icmp[each.key].id]
     },
   ]
 }
