@@ -110,12 +110,8 @@ module "tgw" {
       route_tables = values(module.vpc.route_tables["private"])
       routes = [
         {
-          destination_cidr_block = "10.50.0.0/16"
+          destination_cidr_block = "10.20.0.0/16"
         },
-        {
-          blackhole              = true
-          destination_cidr_block = "0.0.0.0/0"
-        }
       ]
     }
     corp = {
@@ -124,7 +120,7 @@ module "tgw" {
       route_tables = values(module.corp.route_tables["private"])
       routes = [
         {
-          destination_cidr_block = "10.40.0.0/16"
+          destination_cidr_block = "10.10.0.0/16"
         },
         {
           blackhole              = true
