@@ -1,5 +1,9 @@
 ### default values
 
+module "aws" {
+  source = "Young-ook/spinnaker/aws//modules/aws-partitions"
+}
+
 locals {
   default_tgw_config = {
     amazon_side_asn                 = "64512"

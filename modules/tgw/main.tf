@@ -1,17 +1,13 @@
 ### transit gateway
 
-module "aws" {
-  source = "Young-ook/spinnaker/aws//modules/aws-partitions"
-}
-
 ### parameters
 locals {
-  amazon_side_asn                  = lookup(var.tgw_config, "amazon_side_asn", local.default_tgw_config.amazon_side_asn)
-  default_route_table_assocication = lookup(var.tgw_config, "enable_default_route_table_association", local.default_tgw_config.default_route_table_association)
-  default_route_table_propagation  = lookup(var.tgw_config, "enable_default_route_table_propagation", local.default_tgw_config.default_route_table_propagation)
-  auto_accept_shared_attachments   = lookup(var.tgw_config, "enable_auto_accept_shared_attachments", local.default_tgw_config.auto_accept_shared_attachments)
-  vpn_ecmp_support                 = lookup(var.tgw_config, "enable_vpn_ecmp_support", local.default_tgw_config.vpn_ecmp_support)
-  dns_support                      = lookup(var.tgw_config, "enable_dns_support", local.default_tgw_config.dns_support)
+  amazon_side_asn                  = lookup(var.tgw, "amazon_side_asn", local.default_tgw_config.amazon_side_asn)
+  default_route_table_assocication = lookup(var.tgw, "enable_default_route_table_association", local.default_tgw_config.default_route_table_association)
+  default_route_table_propagation  = lookup(var.tgw, "enable_default_route_table_propagation", local.default_tgw_config.default_route_table_propagation)
+  auto_accept_shared_attachments   = lookup(var.tgw, "enable_auto_accept_shared_attachments", local.default_tgw_config.auto_accept_shared_attachments)
+  vpn_ecmp_support                 = lookup(var.tgw, "enable_vpn_ecmp_support", local.default_tgw_config.vpn_ecmp_support)
+  dns_support                      = lookup(var.tgw, "enable_dns_support", local.default_tgw_config.dns_support)
 }
 
 ### transit gateway
