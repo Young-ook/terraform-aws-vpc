@@ -14,16 +14,28 @@ cd terraform-aws-vpc/examples/blueprint
 
 Then you are in **blueprint** directory under your current workspace. There is an exmaple that shows how to use terraform configurations to create and manage VPCs and VPC peerings on your AWS account. Please make sure that you have installed the terraform before moving to the next step.
 
+First of all, you have to create two VPCs on your AWS account for hybrid connectivity simulation. One is an AWS VPC network and the other one is called 'corp' that simulates on-premises network.
+
 Run terraform:
 ```
 terraform init
-terraform apply
+terraform apply -target module.vpc -target module.corp
 ```
 Also you can use the *-var-file* option for customized paramters when you run the terraform plan/apply command.
 ```
 terraform plan -var-file fixture.tc1.tfvars
 terraform apply -var-file fixture.tc1.tfvars
 ```
+
+Then, you can then create a transit gateway (TGW) to connect the two VPCs. Once you're done applying terraforms, you can ping an EC2 instance on the 'corp' network to an EC2 instance running on the 'vpc' network with private IP.
+```
+terraform apply -target module.tgw -target module.vm
+```
+
+## Verify Transit Gateway (TGW) Connections
+Move to the EC2 service page on the AWS Management Conosol and select Instances button on the left side menu. Find an instance that you launched. Select the instance and click *Connect* button on top of the window. After then you will see three tabs EC2 Instance Connect, Session Manager, SSH client. Select Session Manager tab and follow the instruction on the screen.
+
+![aws-ec2-tgw-ping](../../images/aws-ec2-tgw-ping.png)
 
 ## Clean up
 To destroy all infrastrcuture, run terraform:
