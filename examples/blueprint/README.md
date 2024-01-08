@@ -1,6 +1,6 @@
 [[English](README.md)] [[한국어](README.ko.md)]
 
-# VPC Bluprint
+# VPC Blueprint
 This is VPC Blueprint example helps you compose complete VPC, which is a isolated secure network on AWS. With this VPC Blueprint example, you describe the configuration for the desired state of your AWS global network, such as the Virtual Private Cloud (VPC), Transit Gateway (TGW), Peered VPCs, as an Infrastructure as Code (IaC) template/blueprint. Once a blueprint is configured, you can use it to stamp out consistent environments across multiple AWS accounts and Regions using your automation workflow tool, such as Jenkins, CodePipeline. VPC Blueprint also helps you implement relevant security controls needed to operate workloads from multiple teams in the pre-configured secure network.
 Also, this VPC blueprint shows you how to establish a hybrid network ceonnection between an isolated network and a control plane network with TGW.
 
