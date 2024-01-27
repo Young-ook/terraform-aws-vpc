@@ -52,3 +52,16 @@ terraform destroy --auto-approve
 ```
 terraform destroy -var-file fixture.tc1.tfvars
 ```
+
+# Additional Resources
+## Amazon VPC
+- [EKS VPC routable IP address conservation patterns in a hybrid network](https://aws.amazon.com/blogs/containers/eks-vpc-routable-ip-address-conservation/)
+
+## AWS Global Network
+- [Leveraging AWS Global Backbone for Data Center Migration and Global Expansion](https://aws.amazon.com/blogs/architecture/leveraging-aws-global-backbone-for-data-center-migration-and-global-expansion/)
+
+## AWS Transit Gateway
+- [Field Notes: Working with Route Tables in AWS Transit Gateway](https://aws.amazon.com/blogs/architecture/field-notes-working-with-route-tables-in-aws-transit-gateway/)
+
+## Data Transfer
+- [Overview of Data Transfer Costs for Common Architectures](https://aws.amazon.com/blogs/architecture/overview-of-data-transfer-costs-for-common-architectures/)
