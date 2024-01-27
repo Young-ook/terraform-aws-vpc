@@ -56,3 +56,7 @@ Run terraform:
 terraform init
 terraform apply
 ```
+
+# Additional Resources
+## AWS Transit Gateway
+- [AWS Transit Gateway Routing Lab](https://github.com/aws-samples/aws-transit-gateway-routing-lab)
