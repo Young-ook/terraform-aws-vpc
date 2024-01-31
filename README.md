@@ -98,3 +98,6 @@ For high availability of communication between resources (instances) inside and 
 
 ## IPv6
 - [IPv6 on AWS](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/IPv6-on-AWS.html)
+
+## NAT (Network Address Translation)
+- [Connect to the internet or other networks using NAT devices](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat.html)

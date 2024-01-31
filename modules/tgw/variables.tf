@@ -1,9 +1,13 @@
 ### input variables
 
 ### network
-variable "tgw_config" {
+variable "tgw" {
   description = "A Transit Gateway (TGW) configuration"
   default     = {}
+  validation {
+    condition     = var.tgw != null
+    error_message = "Make sure to define valid transit gateway configuration."
+  }
 }
 
 variable "vpc_attachments" {
