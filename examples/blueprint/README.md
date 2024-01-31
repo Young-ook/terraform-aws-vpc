@@ -65,10 +65,15 @@ terraform destroy -var-file fixture.tc1.tfvars
 - [Introducing AWS Gateway Load Balancer – Easy Deployment, Scalability, and High Availability for Partner Appliances](https://aws.amazon.com/ko/blogs/aws/introducing-aws-gateway-load-balancer-easy-deployment-scalability-and-high-availability-for-partner-appliances/)
 - [Integrate your custom logic or appliance with AWS Gateway Load Balancer](https://aws.amazon.com/ko/blogs/networking-and-content-delivery/integrate-your-custom-logic-or-appliance-with-aws-gateway-load-balancer/)
 - [Finding and addressing Network Misconfigurations on AWS](https://validating-network-reachability.awssecworkshops.com/)
+- [Analyze VPC Flow Logs with point-and-click Amazon Athena integration](https://aws.amazon.com/blogs/networking-and-content-delivery/analyze-vpc-flow-logs-with-point-and-click-amazon-athena-integration/)
+- [Automating threat detection and response in AWS](https://d1.awsstatic.com/events/reinvent/2019/REPEAT_1_Automating_threat_detection_and_response_in_AWS_SEC301-R1.pdf)
 
 ## AWS Global Network
 - [Leveraging AWS Global Backbone for Data Center Migration and Global Expansion](https://aws.amazon.com/blogs/architecture/leveraging-aws-global-backbone-for-data-center-migration-and-global-expansion/)
 - [Setting up AWS Direct Connect gateway to route DX traffic to any AWS Region](https://aws.amazon.com/blogs/networking-and-content-delivery/setting-up-aws-direct-connect-gateway-to-route-dx-traffic-to-any-aws-region/)
+
+## AWS Network Firewall
+- [Deployment models for AWS Network Firewall](https://aws.amazon.com/blogs/networking-and-content-delivery/deployment-models-for-aws-network-firewall/)
 
 ## AWS Transit Gateway
 - [Field Notes: Working with Route Tables in AWS Transit Gateway](https://aws.amazon.com/blogs/architecture/field-notes-working-with-route-tables-in-aws-transit-gateway/)
