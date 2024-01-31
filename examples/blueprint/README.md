@@ -61,6 +61,7 @@ terraform destroy -var-file fixture.tc1.tfvars
 - [Creating an AWS Client VPN with Terraform](https://timeular.com/blog/creating-an-aws-client-vpn-with-terraform/)
 - [VPC sharing: key considerations and best practices](https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-sharing-key-considerations-and-best-practices/)
 - [Using VPC Sharing for a Cost-Effective Multi-Account Microservice Architecture](https://aws.amazon.com/blogs/architecture/using-vpc-sharing-for-a-cost-effective-multi-account-microservice-architecture/)
+- [Control VPC sharing in an AWS multi-account setup with service control policies](https://aws.amazon.com/blogs/security/control-vpc-sharing-in-an-aws-multi-account-setup-with-service-control-policies/)
 - [Introducing AWS Gateway Load Balancer – Easy Deployment, Scalability, and High Availability for Partner Appliances](https://aws.amazon.com/ko/blogs/aws/introducing-aws-gateway-load-balancer-easy-deployment-scalability-and-high-availability-for-partner-appliances/)
 - [Integrate your custom logic or appliance with AWS Gateway Load Balancer](https://aws.amazon.com/ko/blogs/networking-and-content-delivery/integrate-your-custom-logic-or-appliance-with-aws-gateway-load-balancer/)
 - [Finding and addressing Network Misconfigurations on AWS](https://validating-network-reachability.awssecworkshops.com/)
