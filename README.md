@@ -96,6 +96,9 @@ For high availability of communication between resources (instances) inside and 
 ## AWS Global Infrastructure
 - [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/)
 
+## Elastic Load Balancing
+- [Elastic Load Balancing features](https://aws.amazon.com/elasticloadbalancing/features/)
+
 ## IPv6
 - [IPv6 on AWS](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/IPv6-on-AWS.html)
 
